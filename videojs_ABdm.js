@@ -100,6 +100,7 @@ function ABPinit(){
 					text: danmu.text,
 					duration: danmu.duration == null ? 10 : danmu.duration,
 				});
+				cm.seek(cmvideo.currentTime*1000);
 				callback();
 			};
 			//Create Load function
