@@ -83,6 +83,26 @@ function ABPinit(){
 				}
 			});
 
+            this.send = function (danmu, callback) {
+            	if (callback == null)
+            		callback = function () {
+            			return;
+            		};
+            	var cm = this.cmManager;
+            	cm.send({
+            		stime: 0,
+            		size: 25,
+            		color: danmu.color == null ? Math.floor(Math.random() * 16777215) : danmu.color,
+            		mode: 1,
+            		date: Math.floor(Date.now() / 1000),
+            		pool: 0,
+            		position: "absolute",
+            		border: false,
+            		text: danmu.text,
+            		duration: danmu.duration == null ? 10 : danmu.duration,
+            	});
+            	callback();
+            };
 			this.insert = function(danmu, callback) {
 				if(callback == null)
 				  callback = function(){return;};
